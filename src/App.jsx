@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef} from 'react';
 
 function App() {
   const canvasRef = useRef(null);
@@ -123,7 +123,7 @@ function App() {
         {/* HEADER */}
         <header className="border border-blue-500/20 bg-gray-950/70 backdrop-blur-md p-8 rounded-2xl mb-16 shadow-2xl">
           <h1 className="text-4xl font-black text-white mb-2">Erza BERISHA</h1>
-          <p className="text-sm font-mono text-cyan-400 tracking-wider uppercase">// SOFTWARE ENGINEER</p>
+          <p className="text-sm font-mono text-cyan-400 tracking-wider uppercase">SOFTWARE ENGINEER</p>
           <p className="text-gray-400 mt-4 leading-relaxed font-mono text-sm max-w-3xl">
             Final-year Computer Science student at the University of Prishtina. Focusing on Full-Stack Software Engineering, Distributed Systems, and Data Security.
           </p>
@@ -131,7 +131,7 @@ function App() {
 
         {/* CORE CAPABILITIES */}
         <section className="mb-16">
-          <h2 className="text-xs font-bold uppercase tracking-widest text-gray-400 font-mono mb-6">// Core Capabilities</h2>
+          <h2 className="text-xs font-bold uppercase tracking-widest text-gray-400 font-mono mb-6">Core Capabilities</h2>
           <div className="flex flex-wrap gap-2">
             {["Java", "Node.js", "React", "Python", "TypeScript", "AWS", "PostgreSQL", "Git"].map((tech) => (
               <span key={tech} className="bg-gray-950/90 border border-gray-800 px-4 py-2 rounded-xl text-xs font-mono text-gray-300 shadow-sm">
@@ -143,7 +143,7 @@ function App() {
 
         {/* PROJECTS GRID */}
         <section className="mb-24">
-          <h2 className="text-xs font-bold uppercase tracking-widest text-gray-400 font-mono mb-8">// Selected Projects</h2>
+          <h2 className="text-xs font-bold uppercase tracking-widest text-gray-400 font-mono mb-8">Selected Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {projects.map((project, idx) => (
               <div key={idx} className="group relative border border-gray-900 bg-gray-950/60 backdrop-blur-md p-6 rounded-2xl hover:border-cyan-500/40 transition-all duration-300 shadow-xl flex flex-col justify-between">
