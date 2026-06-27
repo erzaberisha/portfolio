@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 function App() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
-  // Ndjek lëvizjen e miut për efektin e dritës në background
   useEffect(() => {
     const handleMouseMove = (e) => {
       setMousePos({ x: e.clientX, y: e.clientY });
@@ -44,24 +43,34 @@ function App() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-[#030712] text-gray-300 font-sans overflow-x-hidden selection:bg-blue-500/30 selection:text-blue-200">
+    // Ndryshuar në stil direkt për t'u siguruar që sfondi i zi ngarkohet 100%
+    <div style={{ backgroundColor: '#030712' }} className="relative min-h-screen text-gray-300 font-sans overflow-x-hidden selection:bg-blue-500/30 selection:text-blue-200">
       
-      {/* 1. INTERACTIVE GLOW BACKGROUND */}
+      {/* 1. REAL-TIME GRID OVERLAY (Vrehet shumë më mirë tani) */}
       <div 
-        className="pointer-events-none fixed inset-0 z-0 opacity-20 transition-opacity duration-300 hidden md:block"
+        className="absolute inset-0 pointer-events-none z-0 opacity-40"
         style={{
-          background: `radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, rgba(59, 130, 246, 0.15), transparent 80%)`
+          backgroundImage: `
+            linear-gradient(to right, rgba(31, 41, 55, 0.3) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(31, 41, 55, 0.3) 1px, transparent 1px)
+          `,
+          backgroundSize: '3rem 3rem'
         }}
       />
       
-      {/* Tech-Grid Line Overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f293710_1px,transparent_1px),linear-gradient(to_bottom,#1f293710_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none z-0" />
+      {/* 2. INTERACTIVE GLOW RADIAL (Drita që ndjek miun) */}
+      <div 
+        className="pointer-events-none fixed inset-0 z-0 opacity-30 transition-opacity duration-300 hidden md:block"
+        style={{
+          background: `radial-gradient(500px circle at ${mousePos.x}px ${mousePos.y}px, rgba(59, 130, 246, 0.2), transparent 80%)`
+        }}
+      />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-16 md:py-28">
         
         {/* HEADER SECTION - CYBER COMMAND */}
-        <header className="relative border border-blue-500/20 bg-gray-950/40 backdrop-blur-md p-8 rounded-2xl mb-16 shadow-[0_0_30px_rgba(0,0,0,0.5)]">
-          <div className="absolute top-0 left-8 -translate-y-1/2 bg-[#030712] px-3 py-0.5 text-xs font-mono text-blue-500 tracking-widest uppercase border border-blue-500/30 rounded">
+        <header className="relative border border-blue-500/20 bg-gray-950/60 backdrop-blur-md p-8 rounded-2xl mb-16 shadow-[0_0_50px_rgba(0,0,0,0.8)]">
+          <div className="absolute top-0 left-8 -translate-y-1/2 bg-[#030712] px-3 py-0.5 text-xs font-mono text-blue-400 tracking-widest uppercase border border-blue-500/30 rounded">
             System.Core // Active
           </div>
           
@@ -86,7 +95,7 @@ function App() {
           </div>
         </header>
 
-        {/* TECHNICAL STACK - GLOW CHIPS */}
+        {/* TECHNICAL STACK */}
         <section className="mb-20">
           <div className="flex items-center gap-3 mb-6">
             <span className="text-blue-500 font-mono text-sm">//</span>
@@ -96,7 +105,7 @@ function App() {
             {["Java", "Node.js", "React", "Python", "TypeScript", "AWS", "PostgreSQL", "MongoDB", "Git"].map((tech) => (
               <span 
                 key={tech} 
-                className="bg-gray-950/60 border border-gray-800/80 px-4 py-2 rounded-xl text-xs font-mono text-gray-300 hover:border-blue-500/40 hover:text-blue-400 hover:shadow-[0_0_15px_rgba(59,130,246,0.15)] transition-all duration-300 cursor-default"
+                className="bg-gray-950/80 border border-gray-800 px-4 py-2 rounded-xl text-xs font-mono text-gray-300 hover:border-blue-500/50 hover:text-blue-400 hover:shadow-[0_0_15px_rgba(59,130,246,0.2)] transition-all duration-300 cursor-default"
               >
                 {tech}
               </span>
@@ -104,7 +113,7 @@ function App() {
           </div>
         </section>
 
-        {/* PROJECTS SECTION - NEON SHADOW CARDS */}
+        {/* PROJECTS SECTION */}
         <section className="mb-24">
           <div className="flex items-center gap-3 mb-8">
             <span className="text-blue-500 font-mono text-sm">//</span>
@@ -115,10 +124,9 @@ function App() {
             {projects.map((project) => (
               <div 
                 key={project.id} 
-                className="group relative flex flex-col justify-between border border-gray-900 bg-gray-950/20 backdrop-blur-sm p-6 rounded-2xl hover:border-blue-500/30 hover:bg-gray-950/50 hover:shadow-[0_0_30px_rgba(59,130,246,0.08)] transition-all duration-500"
+                className="group relative flex flex-col justify-between border border-gray-900/80 bg-gray-950/40 backdrop-blur-md p-6 rounded-2xl hover:border-blue-500/40 hover:bg-gray-950/80 hover:shadow-[0_0_30px_rgba(59,130,246,0.12)] transition-all duration-500"
               >
-                {/* Numri i Projektit në prapavijë */}
-                <span className="absolute top-4 right-6 text-6xl font-black font-mono text-gray-900/20 group-hover:text-blue-500/5 transition-colors duration-500 pointer-events-none">
+                <span className="absolute top-4 right-6 text-6xl font-black font-mono text-gray-900/30 group-hover:text-blue-500/10 transition-colors duration-500 pointer-events-none">
                   {project.id}
                 </span>
 
@@ -126,7 +134,7 @@ function App() {
                   <h3 className="text-lg font-bold text-white group-hover:text-blue-400 transition-colors duration-300 mb-3 tracking-tight">
                     {project.title}
                   </h3>
-                  <p className="text-sm text-gray-400 mb-6 leading-relaxed font-sans">
+                  <p className="text-sm text-gray-400 mb-6 leading-relaxed">
                     {project.desc}
                   </p>
                 </div>
@@ -134,13 +142,13 @@ function App() {
                 <div>
                   <div className="flex flex-wrap gap-1.5 mb-5">
                     {project.tech.map((t) => (
-                      <span key={t} className="text-[10px] font-mono text-blue-400/80 bg-blue-950/30 px-2 py-0.5 rounded border border-blue-900/30">
+                      <span key={t} className="text-[10px] font-mono text-blue-400/80 bg-blue-950/50 px-2 py-0.5 rounded border border-blue-900/30">
                         {t}
                       </span>
                     ))}
                   </div>
                   
-                  <div className="flex items-center justify-between pt-4 border-t border-gray-900/50">
+                  <div className="flex items-center justify-between pt-4 border-t border-gray-900/60">
                     <a 
                       href={project.link} 
                       target="_blank" 
@@ -156,18 +164,18 @@ function App() {
           </div>
         </section>
 
-        {/* CYBER FOOTER */}
-        <footer className="border-t border-gray-900/60 pt-8 flex flex-col sm:flex-row justify-between items-center gap-6 text-xs font-mono">
+        {/* FOOTER */}
+        <footer className="border-t border-gray-900/80 pt-8 flex flex-col sm:flex-row justify-between items-center gap-6 text-xs font-mono">
           <div className="flex flex-wrap gap-3">
-            <a href="mailto:berzaberisha@gmail.com" className="flex items-center gap-2 text-gray-400 hover:text-blue-400 hover:border-blue-500/30 transition-all bg-gray-950/40 border border-gray-900 px-4 py-2 rounded-xl">
+            <a href="mailto:berzaberisha@gmail.com" className="flex items-center gap-2 text-gray-400 hover:text-blue-400 hover:border-blue-500/40 transition-all bg-gray-950/60 border border-gray-800 px-4 py-2 rounded-xl">
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
               Email
             </a>
-            <a href="https://linkedin.com/in/erze-berisha/" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-gray-400 hover:text-blue-400 hover:border-blue-500/30 transition-all bg-gray-950/40 border border-gray-900 px-4 py-2 rounded-xl">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            <a href="https://linkedin.com/in/erze-berisha/" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-gray-400 hover:text-blue-400 hover:border-blue-500/40 transition-all bg-gray-950/60 border border-gray-800 px-4 py-2 rounded-xl">
+              <svg xmlns="http://www.w3.org/2000/xl" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
               LinkedIn
             </a>
-            <a href="https://github.com/erzaberisha" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-gray-400 hover:text-blue-400 hover:border-blue-500/30 transition-all bg-gray-950/40 border border-gray-900 px-4 py-2 rounded-xl">
+            <a href="https://github.com/erzaberisha" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-gray-400 hover:text-blue-400 hover:border-blue-500/40 transition-all bg-gray-950/60 border border-gray-800 px-4 py-2 rounded-xl">
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
               GitHub
             </a>
