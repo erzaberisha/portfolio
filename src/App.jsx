@@ -29,20 +29,19 @@ function App() {
   ];
 
   return (
-    // Kemi rritur gjerësinë maksimale në max-w-6xl që të shtrihet më mirë në desktop
-    <div className="max-w-6xl mx-auto px-6 py-12 md:py-24 selection:bg-gray-800">
+    // Rritja e gjerësisë maksimale për shtrirje më të mirë në desktop
+    <div className="max-w-6xl mx-auto px-6 py-12 md:py-24 selection:bg-gray-800 text-gray-300">
       
-      {/* Header Section: Në desktop vjen emri majtas, përshkrimi djathtas */}
+      {/* Header Section: Emri majtas, përshkrimi djathtas në desktop */}
       <header className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 border-b border-gray-900 pb-12">
         <div className="md:col-span-1">
-          <h1 className="text-4xl font-bold tracking-tight text-white mb-2">Erza Berisha</h1>
+          <h1 className="text-4xl font-bold tracking-tight text-white mb-2">Erza BERISHA</h1>
           <p className="text-lg text-blue-400 font-medium">Software Engineer</p>
           <p className="text-sm text-gray-500 font-mono mt-1">Computer Science Student</p>
         </div>
         <div className="md:col-span-2">
           <p className="text-gray-400 leading-relaxed text-base md:text-lg">
-            Final-year Computer Science student at the University of Prishtina focused on Full-Stack Software Engineering, 
-            Distributed Systems, and Data Security. Passionate about building resilient concurrent models and secure cloud infrastructures.
+            Final-year Computer Science student at the University of Prishtina focused on Full-Stack Software Engineering, Distributed Systems, and Data Security. Passionate about building resilient concurrent models and secure cloud infrastructures.
           </p>
         </div>
       </header>
@@ -59,7 +58,7 @@ function App() {
         </div>
       </section>
 
-      {/* Projects Section: grid-cols-1 në telefon, grid-cols-2 në kompjuter (md:) */}
+      {/* Projects Section: 2 kolona në desktop, 1 në celular */}
       <section className="mb-24">
         <h2 className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-8 font-mono">// Selected Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
@@ -90,14 +89,30 @@ function App() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <footer className="border-t border-gray-900 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-gray-500 font-mono">
-        <div className="flex gap-6">
-          <a href="mailto:berzaberisha@gmail.com" className="hover:text-white transition-colors">Email</a>
-          <a href="https://linkedin.com/in/erze-berisha/" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
-          <a href="https://github.com/erzaberisha" target="_blank" rel="noreferrer" className="hover:text-white transition-colors">GitHub</a>
+      {/* Contact Section me Ikona */}
+      <footer className="border-t border-gray-900 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm font-mono">
+        <div className="flex flex-wrap gap-4 items-center">
+          
+          {/* Ikona e Emailit */}
+          <a href="mailto:berzaberisha@gmail.com" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors bg-gray-900 border border-gray-800 px-3 py-1.5 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            Email
+          </a>
+          
+          {/* Ikona e LinkedIn */}
+          <a href="https://linkedin.com/in/erze-berisha/" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors bg-gray-900 border border-gray-800 px-3 py-1.5 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+          
+          {/* Ikona e GitHub */}
+          <a href="https://github.com/erzaberisha" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors bg-gray-900 border border-gray-800 px-3 py-1.5 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+            GitHub
+          </a>
+
         </div>
-        <span className="text-xs">© 2026</span>
+        <span className="text-xs text-gray-600">© 2026</span>
       </footer>
     </div>
   );
