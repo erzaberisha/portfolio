@@ -1,4 +1,4 @@
-import React, { useEffect, useRef} from 'react';
+import React, { useEffect, useRef } from 'react';
 
 function App() {
   const canvasRef = useRef(null);
@@ -8,7 +8,7 @@ function App() {
     const ctx = canvas.getContext('2d');
     
     let particles = [];
-    const maxParticles = 100; // Sa më shumë pika, aq më i theksuar rrjeti
+    const maxParticles = 100;
 
     const resize = () => {
       canvas.width = window.innerWidth;
@@ -17,13 +17,12 @@ function App() {
     resize();
     window.addEventListener('resize', resize);
 
-    // Krijimi i pikave
     class Particle {
       constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.vx = (Math.random() - 0.5) * 1.2; // Shpejtësia X
-        this.vy = (Math.random() - 0.5) * 1.2; // Shpejtësia Y
+        this.vx = (Math.random() - 0.5) * 1.2;
+        this.vy = (Math.random() - 0.5) * 1.2;
         this.radius = Math.random() * 2 + 1.5;
       }
 
@@ -38,7 +37,7 @@ function App() {
       draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(59, 130, 246, 0.8)'; // Pikat blu të theksuara
+        ctx.fillStyle = 'rgba(59, 130, 246, 0.8)';
         ctx.fill();
       }
     }
@@ -47,28 +46,24 @@ function App() {
       particles.push(new Particle());
     }
 
-    // Animacioni që lidh pikat me vija (efekti nga Pinterest)
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Vizato dhe përditëso pikat
       particles.forEach(p => {
         p.update();
         p.draw();
       });
 
-      // Lidhja e pikave nëse janë afër
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
-          if (distance < 120) { // Distanca e lidhjes
+          if (distance < 120) {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            // Sa më afër, aq më e theksuar vija cyan/blue
             ctx.strokeStyle = `rgba(34, 211, 238, ${1 - distance / 120})`; 
             ctx.lineWidth = 0.8;
             ctx.stroke();
@@ -87,6 +82,12 @@ function App() {
 
   const projects = [
     {
+      title: "Clinical Data & ML Pipeline",
+      tech: ["Python", "Scikit-Learn", "Pandas", "PyTorch"],
+      desc: "Designed supervised learning classification and predictive pipelines on structured healthcare datasets, focusing on cross-validation, feature engineering, and metric optimization without data leakage.",
+      link: "https://github.com/erzaberisha"
+    },
+    {
       title: "Distributed Real-Time Chat System",
       tech: ["Java", "TCP Sockets", "Multithreading"],
       desc: "A concurrent client-server chat platform managing bidirectional communication across isolated virtual rooms using LinkedBlockingQueue.",
@@ -103,19 +104,13 @@ function App() {
       tech: ["AWS", "VPC", "Auto-Scaling", "ALB"],
       desc: "Highly available and self-healing cloud network partitioning a custom VPC into public and private subnets with auto-scaling capabilities.",
       link: "https://github.com/erzaberisha"
-    },
-    {
-      title: "Bloom Flower Shop",
-      tech: ["React", "Node.js", "TailwindCSS"],
-      desc: "An interactive full-stack e-commerce application focusing on dynamic state management, modular components, and responsive grids.",
-      link: "https://github.com/erzaberisha"
     }
   ];
 
   return (
     <div className="relative min-h-screen bg-[#030712] text-gray-300 font-sans overflow-x-hidden selection:bg-blue-500/30">
       
-      {/* CANVAS BACKGROUND - EFREKTI PINTEREST NODES NETWORK */}
+      {/* CANVAS BACKGROUND */}
       <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-0 opacity-60" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-16 md:py-24">
@@ -123,9 +118,9 @@ function App() {
         {/* HEADER */}
         <header className="border border-blue-500/20 bg-gray-950/70 backdrop-blur-md p-8 rounded-2xl mb-16 shadow-2xl">
           <h1 className="text-4xl font-black text-white mb-2">Erza BERISHA</h1>
-          <p className="text-sm font-mono text-cyan-400 tracking-wider uppercase">SOFTWARE ENGINEER</p>
+          <p className="text-sm font-mono text-cyan-400 tracking-wider uppercase">SOFTWARE & MACHINE LEARNING ENGINEER</p>
           <p className="text-gray-400 mt-4 leading-relaxed font-mono text-sm max-w-3xl">
-            Final-year Computer Science student at the University of Prishtina. Focusing on Full-Stack Software Engineering, Distributed Systems, and Data Security.
+            Computer Science Graduate from the University of Prishtina. Passionate about software engineering, data-driven systems, and applied Machine Learning. Focused on writing clean, maintainable code and building intelligent data pipelines.
           </p>
         </header>
 
@@ -133,8 +128,8 @@ function App() {
         <section className="mb-16">
           <h2 className="text-xs font-bold uppercase tracking-widest text-gray-400 font-mono mb-6">Core Capabilities</h2>
           <div className="flex flex-wrap gap-2">
-            {["Java", "Node.js", "React", "Python", "TypeScript", "AWS", "PostgreSQL", "Git"].map((tech) => (
-              <span key={tech} className="bg-gray-950/90 border border-gray-800 px-4 py-2 rounded-xl text-xs font-mono text-gray-300 shadow-sm">
+            {["Python", "PyTorch", "Scikit-Learn", "Pandas & NumPy", "SQL", "Java", "Node.js", "React", "TypeScript", "AWS", "Git"].map((tech) => (
+              <span key={tech} className="bg-gray-950/90 border border-gray-800 px-4 py-2 rounded-xl text-xs font-mono text-gray-300 shadow-sm hover:border-cyan-500/40 transition-colors">
                 {tech}
               </span>
             ))}
