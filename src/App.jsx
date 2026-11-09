@@ -130,8 +130,8 @@ function App() {
         {/* HEADER */}
         <header className="border border-blue-500/20 bg-gray-950/70 backdrop-blur-md p-8 rounded-2xl mb-16 shadow-2xl">
           <h1 className="text-4xl font-black text-white mb-2">Erza BERISHA</h1>
-          <p className="text-sm font-mono text-cyan-400 tracking-wider uppercase">SOFTWARE & MACHINE LEARNING ENGINEER</p>
-          <p className="text-gray-400 mt-4 leading-relaxed font-mono text-sm max-w-3xl">
+          <p className="text-sm font-mono text-cyan-400 tracking-wider uppercase mb-4">SOFTWARE & MACHINE LEARNING ENGINEER</p>
+          <p className="text-gray-400 leading-relaxed font-mono text-sm w-full">
             Computer Science Graduate from the University of Prishtina. Specialized in Software Engineering, Data Analytics, and Applied Machine Learning with hands-on experience in clinical healthcare data modeling and statistical computing.
           </p>
         </header>
@@ -150,7 +150,7 @@ function App() {
 
         {/* PROJECTS GRID */}
         <section className="mb-24">
-          <h2 className="text-xs font-bold uppercase tracking-widest text-gray-400 font-mono mb-8">Selected Projects</h2>
+          <h2 className="text-xs font-bold uppercase tracking-widest text-gray-400 font-mono mb-8">Selected Projects ({projects.length})</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {projects.map((project, idx) => (
               <div key={idx} className="group relative border border-gray-900 bg-gray-950/60 backdrop-blur-md p-6 rounded-2xl hover:border-cyan-500/40 transition-all duration-300 shadow-xl flex flex-col justify-between">
