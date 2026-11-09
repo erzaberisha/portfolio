@@ -82,9 +82,9 @@ function App() {
 
   const projects = [
     {
-      title: "Clinical Data & ML Pipeline",
-      tech: ["Python", "Scikit-Learn", "Pandas", "PyTorch"],
-      desc: "Designed supervised learning classification and predictive pipelines on structured healthcare datasets, focusing on cross-validation, feature engineering, and metric optimization without data leakage.",
+      title: "Heart Disease Data Science & Predictive Modeling",
+      tech: ["Python", "Pandas", "Scikit-Learn", "K-Means", "PCA", "Random Forest"],
+      desc: "An end-to-end ML project on clinical healthcare datasets. Features IQR outlier removal, StandardScaler pipelines, supervised modeling (Logistic Regression, Random Forest, Decision Trees) evaluated via confusion matrices, plus unsupervised patient clustering (K-Means, PCA) and Apriori hazard association mining.",
       link: "https://github.com/erzaberisha"
     },
     {
@@ -120,7 +120,7 @@ function App() {
           <h1 className="text-4xl font-black text-white mb-2">Erza BERISHA</h1>
           <p className="text-sm font-mono text-cyan-400 tracking-wider uppercase">SOFTWARE & MACHINE LEARNING ENGINEER</p>
           <p className="text-gray-400 mt-4 leading-relaxed font-mono text-sm max-w-3xl">
-            Computer Science Graduate from the University of Prishtina. Passionate about software engineering, data-driven systems, and applied Machine Learning. Focused on writing clean, maintainable code and building intelligent data pipelines.
+            Computer Science Graduate from the University of Prishtina. Specialized in Software Engineering, Data Analysis, and Applied Machine Learning with hands-on experience in clinical healthcare data analytics and predictive modeling.
           </p>
         </header>
 
@@ -128,7 +128,7 @@ function App() {
         <section className="mb-16">
           <h2 className="text-xs font-bold uppercase tracking-widest text-gray-400 font-mono mb-6">Core Capabilities</h2>
           <div className="flex flex-wrap gap-2">
-            {["Python", "PyTorch", "Scikit-Learn", "Pandas & NumPy", "SQL", "Java", "Node.js", "React", "TypeScript", "AWS", "Git"].map((tech) => (
+            {["Python", "Pandas & NumPy", "Scikit-Learn", "PyTorch", "SQL", "Java", "Node.js", "React", "AWS", "Git"].map((tech) => (
               <span key={tech} className="bg-gray-950/90 border border-gray-800 px-4 py-2 rounded-xl text-xs font-mono text-gray-300 shadow-sm hover:border-cyan-500/40 transition-colors">
                 {tech}
               </span>
