@@ -150,7 +150,7 @@ function App() {
 
         {/* PROJECTS GRID */}
         <section className="mb-24">
-          <h2 className="text-xs font-bold uppercase tracking-widest text-gray-400 font-mono mb-8">Selected Projects ({projects.length})</h2>
+          <h2 className="text-xs font-bold uppercase tracking-widest text-gray-400 font-mono mb-8">Selected Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {projects.map((project, idx) => (
               <div key={idx} className="group relative border border-gray-900 bg-gray-950/60 backdrop-blur-md p-6 rounded-2xl hover:border-cyan-500/40 transition-all duration-300 shadow-xl flex flex-col justify-between">
@@ -175,14 +175,26 @@ function App() {
           </div>
         </section>
 
-        {/* FOOTER */}
-        <footer className="border-t border-gray-900 pt-8 flex flex-col sm:flex-row justify-between items-center gap-6 text-xs font-mono">
-          <div className="flex gap-3">
-            <a href="mailto:berzaberisha@gmail.com" className="flex items-center gap-2 text-gray-400 hover:text-cyan-400 bg-gray-950/90 border border-gray-900 px-4 py-2 rounded-xl transition-colors">Email</a>
-            <a href="https://linkedin.com/in/erze-berisha/" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-gray-400 hover:text-cyan-400 bg-gray-950/90 border border-gray-900 px-4 py-2 rounded-xl transition-colors">LinkedIn</a>
-            <a href="https://github.com/erzaberisha" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-gray-400 hover:text-cyan-400 bg-gray-950/90 border border-gray-900 px-4 py-2 rounded-xl transition-colors">GitHub</a>
+        {/* FOOTER & CONTACT */}
+        <footer className="border-t border-gray-900 pt-10 mt-16">
+          <div className="mb-6">
+            <h2 className="text-xs font-bold uppercase tracking-widest text-cyan-400 font-mono mb-2">Get In Touch / Contact</h2>
+            <p className="text-xs font-mono text-gray-500">Feel free to reach out for opportunities or collaboration.</p>
           </div>
-          <span className="text-gray-600">© 2026 Erza BERISHA</span>
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-6 text-xs font-mono">
+            <div className="flex flex-wrap gap-3">
+              <a href="mailto:berzaberisha@gmail.com" className="flex items-center gap-2 text-gray-300 hover:text-cyan-400 bg-gray-950/90 border border-gray-800 px-4 py-2.5 rounded-xl transition-all hover:border-cyan-500/40 shadow-sm">
+                ✉️ berzaberisha@gmail.com
+              </a>
+              <a href="https://linkedin.com/in/erze-berisha/" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-gray-300 hover:text-cyan-400 bg-gray-950/90 border border-gray-800 px-4 py-2.5 rounded-xl transition-all hover:border-cyan-500/40 shadow-sm">
+                LinkedIn
+              </a>
+              <a href="https://github.com/erzaberisha" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-gray-300 hover:text-cyan-400 bg-gray-950/90 border border-gray-800 px-4 py-2.5 rounded-xl transition-all hover:border-cyan-500/40 shadow-sm">
+                GitHub
+              </a>
+            </div>
+            <span className="text-gray-600 font-mono">© 2026 Erza BERISHA</span>
+          </div>
         </footer>
 
       </div>
