@@ -82,28 +82,40 @@ function App() {
 
   const projects = [
     {
-      title: "Heart Disease Data Science & Predictive Modeling",
+      title: "Heart Disease Data Analytics & Predictive Modeling",
       tech: ["Python", "Pandas", "Scikit-Learn", "K-Means", "PCA", "Random Forest"],
-      desc: "An end-to-end ML project on clinical healthcare datasets. Features IQR outlier removal, StandardScaler pipelines, supervised modeling (Logistic Regression, Random Forest, Decision Trees) evaluated via confusion matrices, plus unsupervised patient clustering (K-Means, PCA) and Apriori hazard association mining.",
-      link: "https://github.com/erzaberisha"
+      desc: "An end-to-end data science and machine learning project on clinical datasets. Features IQR outlier handling, StandardScaler pipelines, supervised classification (Logistic Regression, Random Forest, Decision Trees) with confusion matrix metrics, K-Means & PCA patient clustering, and Apriori association mining.",
+      link: "https://github.com/erzaberisha/heart-disease-data-analytics"
+    },
+    {
+      title: "French Railway Statistical Analysis",
+      tech: ["R", "Statistics", "Data Visualization", "Hypothesis Testing"],
+      desc: "Statistical analysis and data modeling performed in R on French railway transportation datasets to uncover operational patterns, trend distributions, and analytical insights.",
+      link: "https://github.com/erzaberisha/french-railway-statistical-analysis"
     },
     {
       title: "Distributed Real-Time Chat System",
       tech: ["Java", "TCP Sockets", "Multithreading"],
       desc: "A concurrent client-server chat platform managing bidirectional communication across isolated virtual rooms using LinkedBlockingQueue.",
-      link: "https://github.com/erzaberisha"
+      link: "https://github.com/erzaberisha/distributed-realtime-chat"
     },
     {
-      title: "Distributed Calculator via Java RMI",
+      title: "Distributed Scientific Calculator via Java RMI",
       tech: ["Java", "RMI", "Concurrency"],
       desc: "A distributed system offloading intensive calculus and arithmetic tasks from thin clients to a centralized registry engine.",
-      link: "https://github.com/erzaberisha"
+      link: "https://github.com/erzaberisha/distributed-scientific-calculator-rmi"
     },
     {
-      title: "AWS Secure Infrastructure Deployment",
-      tech: ["AWS", "VPC", "Auto-Scaling", "ALB"],
-      desc: "Highly available and self-healing cloud network partitioning a custom VPC into public and private subnets with auto-scaling capabilities.",
-      link: "https://github.com/erzaberisha"
+      title: "AWS High Availability Network Deployment",
+      tech: ["AWS", "VPC", "Auto-Scaling", "ALB", "Cloud Architecture"],
+      desc: "Highly available and self-healing cloud infrastructure partitioning a custom VPC into public and private subnets with auto-scaling capabilities and load balancing.",
+      link: "https://github.com/erzaberisha/aws-high-availability-network"
+    },
+    {
+      title: "Bloom Flower Shop",
+      tech: ["React", "Node.js", "TailwindCSS", "JavaScript"],
+      desc: "An interactive full-stack e-commerce application focusing on dynamic state management, modular component architecture, and responsive design.",
+      link: "https://github.com/erzaberisha/BloomFlowerShop"
     }
   ];
 
@@ -120,7 +132,7 @@ function App() {
           <h1 className="text-4xl font-black text-white mb-2">Erza BERISHA</h1>
           <p className="text-sm font-mono text-cyan-400 tracking-wider uppercase">SOFTWARE & MACHINE LEARNING ENGINEER</p>
           <p className="text-gray-400 mt-4 leading-relaxed font-mono text-sm max-w-3xl">
-            Computer Science Graduate from the University of Prishtina. Specialized in Software Engineering, Data Analysis, and Applied Machine Learning with hands-on experience in clinical healthcare data analytics and predictive modeling.
+            Computer Science Graduate from the University of Prishtina. Specialized in Software Engineering, Data Analytics, and Applied Machine Learning with hands-on experience in clinical healthcare data modeling and statistical computing.
           </p>
         </header>
 
@@ -128,7 +140,7 @@ function App() {
         <section className="mb-16">
           <h2 className="text-xs font-bold uppercase tracking-widest text-gray-400 font-mono mb-6">Core Capabilities</h2>
           <div className="flex flex-wrap gap-2">
-            {["Python", "Pandas & NumPy", "Scikit-Learn", "PyTorch", "SQL", "Java", "Node.js", "React", "AWS", "Git"].map((tech) => (
+            {["Python", "Pandas & NumPy", "Scikit-Learn", "R", "Java", "SQL", "React", "Node.js", "AWS", "Git"].map((tech) => (
               <span key={tech} className="bg-gray-950/90 border border-gray-800 px-4 py-2 rounded-xl text-xs font-mono text-gray-300 shadow-sm hover:border-cyan-500/40 transition-colors">
                 {tech}
               </span>
@@ -138,7 +150,7 @@ function App() {
 
         {/* PROJECTS GRID */}
         <section className="mb-24">
-          <h2 className="text-xs font-bold uppercase tracking-widest text-gray-400 font-mono mb-8">Selected Projects</h2>
+          <h2 className="text-xs font-bold uppercase tracking-widest text-gray-400 font-mono mb-8">Selected Projects ({projects.length})</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {projects.map((project, idx) => (
               <div key={idx} className="group relative border border-gray-900 bg-gray-950/60 backdrop-blur-md p-6 rounded-2xl hover:border-cyan-500/40 transition-all duration-300 shadow-xl flex flex-col justify-between">
