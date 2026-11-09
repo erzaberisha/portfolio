@@ -150,7 +150,7 @@ function App() {
 
         {/* PROJECTS GRID */}
         <section className="mb-24">
-          <h2 className="text-xs font-bold uppercase tracking-widest text-gray-400 font-mono mb-8">Selected Projects ({projects.length})</h2>
+          <h2 className="text-xs font-bold uppercase tracking-widest text-gray-400 font-mono mb-8">Selected Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {projects.map((project, idx) => (
               <div key={idx} className="group relative border border-gray-900 bg-gray-950/60 backdrop-blur-md p-6 rounded-2xl hover:border-cyan-500/40 transition-all duration-300 shadow-xl flex flex-col justify-between">
