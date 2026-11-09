@@ -132,7 +132,7 @@ function App() {
           <h1 className="text-4xl font-black text-white mb-2">Erza BERISHA</h1>
           <p className="text-sm font-mono text-cyan-400 tracking-wider uppercase mb-4">SOFTWARE & MACHINE LEARNING ENGINEER</p>
           <p className="text-gray-400 leading-relaxed font-mono text-sm w-full">
-            Computer Science Graduate from the University of Prishtina. Specialized in Software Engineering, Data Analytics, and Applied Machine Learning with hands-on experience in clinical healthcare data modeling and statistical computing.
+            Computer Science Graduate from the University of Prishtina, specializing in Software Engineering and Machine Learning with a strong foundation in building predictive models, data pipelines, and scalable backend systems.
           </p>
         </header>
 
